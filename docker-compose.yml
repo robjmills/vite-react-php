@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  php-fpm:
+    build:
+      context: ./docker/php
+    volumes:
+      - ./public:/var/www
+
+  nginx:
+    build:
+      context: ./docker/nginx
+    volumes:
+      - ./public:/var/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/sites/:/etc/nginx/sites-available
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d
+    depends_on:
+      - php-fpm
+    ports:
+      - "8888:80"
+
+  node:
+    build:
+      context: ./docker/node
+    volumes: 
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - "3000:3000"
