@@ -43,7 +43,7 @@ export default {
     // we need a strict port to match on PHP side
     // change freely, but update on PHP to match the same port
     strictPort: true,
-    port: 3000,
+    port: 3001,
     hmr: {
       host: 'localhost',
     }

@@ -20,9 +20,6 @@ require_once __DIR__ . '/helpers.php';
 </head>
 
 <body>
-    <?= '<p class="message">PHP output heress, potentially large HTML chunks</p>' ?>
-    <hr>
-
     <div id="root" role='main'></div>
 </body>
 
